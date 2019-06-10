@@ -1,66 +1,17 @@
-# Contributing
+We're really glad you're reading this, because we need volunteer developers to help this project come to fruition. 👏
 
-We are open to, and grateful for, any contributions made by the community. By contributing to axios, you agree to abide by the [code of conduct](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md).
+## Instructions
 
-### Code Style
+These steps will guide you through contributing to this project:
 
-Please follow the [node style guide](https://github.com/felixge/node-style-guide).
+- Fork the repo
+- Clone it and install dependencies
 
-### Commit Messages
+		git clone https://github.com/YOUR-USERNAME/typescript-library-starter
+		npm install
 
-Commit messages should be verb based, using the following pattern:
+Keep in mind that after running `npm install` the git repo is reset. So a good way to cope with this is to have a copy of the folder to push the changes, and the other to try them.
 
-- `Fixing ...`
-- `Adding ...`
-- `Updating ...`
-- `Removing ...`
+Make and commit your changes. Make sure the commands npm run build and npm run test:prod are working.
 
-### Testing
-
-Please update the tests to reflect your code changes. Pull requests will not be accepted if they are failing on [Travis CI](https://travis-ci.org/mzabriskie/axios).
-
-### Documentation
-
-Please update the docs accordingly so that there are no discrepencies between the API and the documentation.
-
-### Developing
-
-- `grunt test` run the jasmine and mocha tests
-- `grunt build` run webpack and bundle the source
-- `grunt version` prepare the code for release
-- `grunt watch:test` watch for changes and run `test`
-- `grunt watch:build` watch for changes and run `build`
-
-Please don't include changes to `dist/` in your pull request. This should only be updated when releasing a new version.
-
-### Releasing
-
-Releasing a new version is mostly automated. For now the [CHANGELOG](https://github.com/axios/axios/blob/master/CHANGELOG.md) requires being updated manually. Once this has been done run the commands below. Versions should follow [semantic versioning](http://semver.org/).
-
-- `npm version <newversion> -m "Releasing %s"`
-- `npm publish`
-
-### Running Examples
-
-Examples are included in part to allow manual testing.
-
-Running example
-
-```bash
-$ npm run examples
-# Open 127.0.0.1:3000
-```
-
-Running sandbox in browser
-
-```bash
-$ npm start
-# Open 127.0.0.1:3000
-```
-
-Running sandbox in terminal
-
-```bash
-$ npm start
-$ node ./sandbox/client
-```
+Finally send a [GitHub Pull Request](https://github.com/alexjoverm/typescript-library-starter/compare?expand=1) with a clear list of what you've done (read more [about pull requests](https://help.github.com/articles/about-pull-requests/)). Make sure all of your commits are atomic (one feature per commit).

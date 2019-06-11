@@ -1,7 +1,7 @@
 import { isDate, isPlainObject } from './util'
 
 function encode(val: string): string {
-  // 对于字符 @ : $ , [ ] 空格 我们是允许出现在 url 中的，不希望被 encode
+  // 对于字符 @ : $ , [ ] 空格 是允许出现在 url 中的，不希望被 encode
   return encodeURIComponent(val)
     .replace(/%40/g, '@')
     .replace(/%3A/gi, ':')

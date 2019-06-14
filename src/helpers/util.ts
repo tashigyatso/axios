@@ -14,3 +14,12 @@ export function isDate(val: any): val is Date {
 export function isPlainObject(val: any): val is Object {
   return toString.call(val) === '[object Object]'
 }
+
+// 将 from 里的属性都扩展到 to 中
+export function extend<T, U>(to: T, from: T): T & U {
+  for (const key in from) {
+    // TODO: as T & U
+    to[key] = from[key]
+  }
+  return to as T & U
+}

@@ -1,6 +1,6 @@
 import axios from '../../src/index'
 
-/* axios({
+axios({
   url: '/extend/post',
   method: 'post',
   data: {
@@ -43,7 +43,7 @@ axios('/extend/post', {
   data: {
     msg: 'hello'
   }
-}) */
+})
 
 interface ResponseData<T = any> {
   code: number

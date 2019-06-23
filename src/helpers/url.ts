@@ -1,5 +1,10 @@
 import { isDate, isPlainObject } from './util'
 
+interface URLOrigin {
+  protocol: string
+  host: string
+}
+
 function encode(val: string): string {
   // 对于字符 @ : $ , [ ] 空格 是允许出现在 url 中的，不希望被 encode
   return encodeURIComponent(val)
@@ -60,4 +65,27 @@ export function buildURL(url: string, params?: any): string {
   }
 
   return url
+}
+
+// 判断是否同源
+export function isURLSameOrigin(requestURL: string): boolean {
+  const parsedOrigin = resolveURL(requestURL)
+  // 当前页面的 url 和请求的 url 通过这种方式获取，然后对比它们的 protocol 和 host 是否相同即可
+  return (
+    parsedOrigin.protocol === currentOrigin.protocol && parsedOrigin.host === currentOrigin.host
+  )
+}
+
+const urlParsingNode = document.createElement('a')
+const currentOrigin = resolveURL(window.location.href)
+
+// 创建一个 a 标签的 DOM，然后设置 href 属性为传入的 url，可以获取该 DOM 的 protocol、host
+function resolveURL(url: string): URLOrigin {
+  urlParsingNode.setAttribute('href', url)
+  const { protocol, host } = urlParsingNode
+
+  return {
+    protocol,
+    host
+  }
 }

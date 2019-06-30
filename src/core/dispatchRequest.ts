@@ -8,9 +8,17 @@ export default function dispatchRequest(config: AxiosRequestConfig): AxiosPromis
   throwIfCancellationRequested(config)
   // 在执行 xhr 函数前，先执行 processConfig
   processConfig(config)
-  return xhr(config).then(res => {
-    return transformResponseData(res)
-  })
+  return xhr(config).then(
+    res => {
+      return transformResponseData(res)
+    },
+    e => {
+      if (e && e.response) {
+        e.response = transformResponseData(e.response)
+      }
+      return Promise.reject(e)
+    }
+  )
 }
 
 // 对 config 中的数据做处理
